@@ -11,14 +11,14 @@
             <div class="article-short">{{content}}</div>
             <div class="article-foot">
               2019-07-30
-              <el-button class="readAll">阅读全文</el-button>
+              <el-button class="readAll" @click="readArticle(i)">阅读全文</el-button>
             </div>
           </el-card>
         </div>
       </el-col>
       <el-col :span="4" style="position:fixed;right:20%">
         <div class="article-info" v-for="i in 2" :key="i">
-          <el-card shadow="never">
+          <el-card>
             <div>About me</div>
             <div>自诩为：Golang 杂耍大师</div>
             <div>下面是一些简介</div>
@@ -40,6 +40,12 @@ export default {
       content:
         "相信大家经常会在豆瓣上查看某些电影、图书或者音乐的评论，以此来选择是否适合自己。而豆瓣几乎涵盖了所有资源信息，有大佬就在其上面整合了电影..."
     };
+  },
+
+  methods: {
+    readArticle(id) {
+      this.$router.push(`/article/${id}`);
+    }
   }
 };
 </script>
