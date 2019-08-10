@@ -1,25 +1,32 @@
 <template>
   <div class="main">
     <div class="menu">
-      <div class="title">徐程意的博客</div>
-      <template v-if="isPc">
-        <el-menu
-          :default-active="activeIndex"
-          class="el-menu-demo"
-          mode="horizontal"
-          @select="handleSelect"
-          router
-        >
-          <el-menu-item index="/">首页</el-menu-item>
-          <el-menu-item index="2">原创</el-menu-item>
-          <el-menu-item index="3">精品转载</el-menu-item>
-          <el-menu-item index="4">奇技淫巧</el-menu-item>
-          <el-menu-item index="4">在线工具</el-menu-item>
-        </el-menu>
-      </template>
-      <template v-else>
-        <el-button @click="drawer=true">=</el-button>
-      </template>
+      <el-row :gutter="10">
+        <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+          <div class="title">徐程意的博客</div>
+        </el-col>
+         <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+        <template v-if="isPc">
+          <el-menu
+            :default-active="activeIndex"
+            class="el-menu-demo"
+            mode="horizontal"
+            @select="handleSelect"
+            router
+          >
+            <el-menu-item index="/">首页</el-menu-item>
+            <el-menu-item index="2">原创</el-menu-item>
+            <el-menu-item index="3">精品转载</el-menu-item>
+            <el-menu-item index="4">奇技淫巧</el-menu-item>
+            <el-menu-item index="4">在线工具</el-menu-item>
+          </el-menu>
+        </template>
+        <template v-else>
+          <el-button @click="drawer=true">=</el-button>
+        </template>
+      </el-col>
+      </el-row>
+     
 
       <el-drawer title="我是标题" :visible.sync="drawer">
         <span>我来啦!</span>
