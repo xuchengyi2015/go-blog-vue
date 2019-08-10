@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="menu">
-      <el-card class="title">徐程意的博客</el-card>
+      <div class="title">徐程意的博客</div>
       <template v-if="isPc">
         <el-menu
           :default-active="activeIndex"
@@ -86,6 +86,7 @@ export default {
 
   .content {
     padding-top: 70px;
+    width: 99%;
   }
 }
 </style>
