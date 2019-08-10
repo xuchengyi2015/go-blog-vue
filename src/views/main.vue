@@ -1,39 +1,40 @@
 <template>
   <div class="main">
     <div class="menu">
-      <el-row :gutter="10">
-        <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+      <el-row :gutter="10" style="background: white;">
+        <el-col :span="3" :offset="6">
           <div class="title">徐程意的博客</div>
         </el-col>
-         <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-        <template v-if="isPc">
-          <el-menu
-            :default-active="activeIndex"
-            class="el-menu-demo"
-            mode="horizontal"
-            @select="handleSelect"
-            router
-          >
-            <el-menu-item index="/">首页</el-menu-item>
-            <el-menu-item index="2">原创</el-menu-item>
-            <el-menu-item index="3">精品转载</el-menu-item>
-            <el-menu-item index="4">奇技淫巧</el-menu-item>
-            <el-menu-item index="4">在线工具</el-menu-item>
-          </el-menu>
-        </template>
-        <template v-else>
-          <el-button @click="drawer=true">=</el-button>
-        </template>
-      </el-col>
+        <el-col :span="15">
+          <template v-if="isPc">
+            <el-menu
+              :default-active="activeIndex"
+              class="el-menu-demo"
+              mode="horizontal"
+              @select="handleSelect"
+              router
+            >
+              <el-menu-item index="/">首页</el-menu-item>
+              <el-menu-item index="2">原创</el-menu-item>
+              <el-menu-item index="3">精品转载</el-menu-item>
+              <el-menu-item index="4">奇技淫巧</el-menu-item>
+              <el-menu-item index="4">在线工具</el-menu-item>
+            </el-menu>
+          </template>
+          <template v-else>
+            <el-button @click="drawer=true">=</el-button>
+          </template>
+        </el-col>
       </el-row>
-     
 
       <el-drawer title="我是标题" :visible.sync="drawer">
         <span>我来啦!</span>
       </el-drawer>
     </div>
     <div class="content">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -85,8 +86,7 @@ export default {
     position: fixed;
     width: 100%;
     .title {
-      float: left;
-      margin: 12px 20px 12px 30%;
+      margin-top: 13px;
       font-size: 25px;
     }
   }

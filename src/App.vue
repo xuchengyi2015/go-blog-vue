@@ -17,6 +17,7 @@ export default {
 <style>
 body {
   margin: 0px;
+  background-color: #f9f9f5;
 }
 
 ::-webkit-scrollbar {
