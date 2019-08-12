@@ -18,7 +18,7 @@
         <div class="article-info" v-for="i in 2" :key="i">
           <el-card>
             <div>About me</div>
-            <div>自诩为：Golang 杂耍大师</div>
+            <div>Golang 杂耍大师</div>
             <div>下面是一些简介</div>
             <div>全是废话废话废话废话废话</div>
             <div>全是废话废话废话废话废话</div>
