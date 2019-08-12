@@ -4,14 +4,18 @@
       <el-col :offset="6" :span="9">
         <div class="article-info card-left" v-for="item in articles" :key="item.id">
           <el-card shadow="hover">
-            <img src="https://s2.ax1x.com/2019/08/10/eLtzJs.md.jpg" />
+            <img :src="item.theme_image==''?defalutImage:item.theme_image" />
             <div class="article-title">{{item.title}}</div>
-            <div class="article-short">{{item.content}}</div>
+            <div class="article-short">{{item.brief}}</div>
             <div class="article-foot">
               {{item.created_at}}
               <el-button class="readAll" @click="readArticle(item.id)">阅读全文</el-button>
             </div>
           </el-card>
+        </div>
+
+        <div class="more">
+          <el-button @click="loadMore">加载更多...</el-button>
         </div>
       </el-col>
       <el-col :span="4" style="position:fixed;right:20%">
@@ -19,7 +23,9 @@
           <el-card>
             <div>About me</div>
             <div>Golang 杂耍大师</div>
-            <div>github.com/xuchengyi2015</div>
+            <div>
+              <a href="https://github.com/xuchengyi2015" target="blank">github.com/xuchengyi2015</a>
+            </div>
             <div>全是废话废话废话废话废话</div>
             <div>全是废话废话废话废话废话</div>
             <div>全是废话废话废话废话废话</div>
@@ -62,10 +68,13 @@
 </template>
 
 <script>
+import { GetArticles } from "@/api/blog";
 export default {
   data() {
     return {
-      articles: []
+      defalutImage: "https://s2.ax1x.com/2019/08/10/eLtzJs.md.jpg",
+      articles: [],
+      currentOffset: 0
     };
   },
 
@@ -74,15 +83,22 @@ export default {
   },
 
   methods: {
+    loadMore() {
+      this.currentOffset += 15;
+      this.getArticles();
+    },
+
     readArticle(id) {
       // this.$router.push();
       window.open(`/#/article/${id}`);
     },
 
     getArticles() {
-      const category = "all";
-      this.$http(`/api/v1/blogs?category=${category}`).then(res => {
-        this.articles = res.data.data;
+      GetArticles({
+        limit: 15,
+        offset: this.currentOffset
+      }).then(res => {
+        this.articles = res.data;
       });
     }
   }
@@ -120,6 +136,20 @@ export default {
   .card-left {
     .el-card {
       height: 180px;
+      position: relative;
+      .article-foot {
+        position: absolute;
+        left: 175px;
+        bottom: 16px;
+        .el-button {
+          margin-left: 280px;
+        }
+      }
+    }
+  }
+  .more {
+    .el-button {
+      width: 100%;
     }
   }
   .el-tag {
