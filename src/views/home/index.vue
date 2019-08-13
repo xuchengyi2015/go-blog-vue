@@ -3,7 +3,7 @@
     <el-row justify="center">
       <el-col :offset="6" :span="9">
         <div class="article-info card-left" v-for="item in articles" :key="item.id">
-          <el-card shadow="hover">
+          <el-card shadow="always">
             <img :src="item.theme_image==''?defalutImage:item.theme_image" />
             <div class="article-title">{{item.title}}</div>
             <div class="article-short">{{item.brief}}</div>
@@ -24,9 +24,16 @@
             <div>About me</div>
             <div>Golang 杂耍大师</div>
             <div>
-              <a href="https://github.com/xuchengyi2015" target="blank">github.com/xuchengyi2015</a>
+              <i class="el-icon-home"></i>
+              <a
+                href="https://github.com/xuchengyi2015"
+                target="blank"
+              >https://github.com/xuchengyi2015</a>
             </div>
-            <div>全是废话废话废话废话废话</div>
+            <div>
+              <i class="el-icon-home"></i>
+              <a href="https://go.xuxuzhaozhao.top" target="blank">https://go.xuxuzhaozhao.top</a>
+            </div>
             <div>全是废话废话废话废话废话</div>
             <div>全是废话废话废话废话废话</div>
             <div>全是废话废话废话废话废话</div>
@@ -72,9 +79,11 @@ import { GetArticles } from "@/api/blog";
 export default {
   data() {
     return {
-      defalutImage: "https://s2.ax1x.com/2019/08/10/eLtzJs.md.jpg",
+      defalutImage: "https://s2.ax1x.com/2019/08/13/mCmPAg.th.jpg",
       articles: [],
-      currentOffset: 0
+      currentOffset: 0,
+      limit: 10,
+      category: "all"
     };
   },
 
@@ -84,8 +93,18 @@ export default {
 
   methods: {
     loadMore() {
-      this.currentOffset += 15;
-      this.getArticles();
+      this.currentOffset += this.limit;
+      GetArticles({
+        limit: this.limit,
+        offset: this.currentOffset,
+        category: this.category
+      }).then(res => {
+        if (res.data == null || res.data.length == 0) {
+          this.$message({ type: "warning", message: "没有更多的文章咯！" });
+        } else {
+          this.articles.push(...res.data);
+        }
+      });
     },
 
     readArticle(id) {
@@ -95,8 +114,9 @@ export default {
 
     getArticles() {
       GetArticles({
-        limit: 15,
-        offset: this.currentOffset
+        limit: this.limit,
+        offset: this.currentOffset,
+        category: this.category
       }).then(res => {
         this.articles = res.data;
       });
@@ -148,6 +168,7 @@ export default {
     }
   }
   .more {
+    margin-bottom: 30px;
     .el-button {
       width: 100%;
     }

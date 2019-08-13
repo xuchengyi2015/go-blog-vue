@@ -19,6 +19,7 @@ export default {
 
   data() {
     return {
+      loading: false,
       content: ``,
       articleId: this.$route.params.id
     };

@@ -17,7 +17,6 @@
               <el-menu-item index="/">首页</el-menu-item>
               <el-menu-item index="2">原创</el-menu-item>
               <el-menu-item index="3">精品转载</el-menu-item>
-              <el-menu-item index="4">奇技淫巧</el-menu-item>
               <el-menu-item index="4">在线工具</el-menu-item>
             </el-menu>
           </template>
@@ -33,9 +32,8 @@
     </div>
     <div class="content">
       <keep-alive>
-<router-view></router-view>
+        <router-view></router-view>
       </keep-alive>
-        
     </div>
   </div>
 </template>
