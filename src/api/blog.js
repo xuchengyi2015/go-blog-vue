@@ -9,3 +9,13 @@ export function GetArticles(params) {
         })
     })
 }
+
+export function GetTags() {
+    return new Promise((resolve, reject) => {
+        axios.get(`/api/v1/tags`).then(res => {
+            resolve(res.data)
+        }).catch(err => {
+            reject(err)
+        })
+    })
+}

@@ -19,9 +19,9 @@
         </div>
       </el-col>
       <el-col :span="4" style="position:fixed;right:20%">
-        <div class="article-info">
+        <div class="article-info right">
           <el-card>
-            <div>About me</div>
+            <div class="title">About me</div>
             <div>Golang 杂耍大师</div>
             <div>
               <i class="el-icon-home"></i>
@@ -40,9 +40,9 @@
           </el-card>
         </div>
 
-        <div class="article-info">
+        <div class="article-info right">
           <el-card>
-            <div>分类 · 归档</div>
+            <div class="title">分类 · 归档</div>
             <div>Golang (21)</div>
             <div>Vue (12)</div>
             <div>MariaDB (10)</div>
@@ -51,22 +51,10 @@
           </el-card>
         </div>
 
-        <div class="article-info">
+        <div class="article-info right">
           <el-card>
-            <div>标签</div>
-            <el-tag>ubuntu</el-tag>
-            <el-tag type="success">redis</el-tag>
-            <el-tag type="info">postgresql</el-tag>
-            <el-tag type="warning">rabbitmq</el-tag>
-            <el-tag type="danger">docker</el-tag>
-
-            <el-tag type="success">sqlserver</el-tag>
-            <el-tag type="info">c#</el-tag>
-            <el-tag type="warning">topself</el-tag>
-
-            <el-tag type="info">postgresql</el-tag>
-            <el-tag type="warning">rabbitmq</el-tag>
-            <el-tag type="danger">docker</el-tag>
+            <div class="title">标签</div>
+            <tags @clickTag="getArticlesByTag" />
           </el-card>
         </div>
       </el-col>
@@ -75,15 +63,21 @@
 </template>
 
 <script>
+import Tags from "./tags";
 import { GetArticles } from "@/api/blog";
 export default {
+  components: {
+    Tags
+  },
+
   data() {
     return {
       defalutImage: "https://s2.ax1x.com/2019/08/13/mCmPAg.th.jpg",
       articles: [],
       currentOffset: 0,
       limit: 10,
-      category: "all"
+      category: "all",
+      currentTag: ""
     };
   },
 
@@ -92,12 +86,24 @@ export default {
   },
 
   methods: {
+    getArticles() {
+      GetArticles({
+        limit: this.limit,
+        offset: this.currentOffset,
+        category: this.category,
+        currentTag: this.currentTag
+      }).then(res => {
+        this.articles = res.data;
+      });
+    },
+
     loadMore() {
       this.currentOffset += this.limit;
       GetArticles({
         limit: this.limit,
         offset: this.currentOffset,
-        category: this.category
+        category: this.category,
+        currentTag: this.currentTag
       }).then(res => {
         if (res.data == null || res.data.length == 0) {
           this.$message({ type: "warning", message: "没有更多的文章咯！" });
@@ -107,25 +113,19 @@ export default {
       });
     },
 
-    readArticle(id) {
-      // this.$router.push();
-      window.open(`/#/article/${id}`);
+    getArticlesByTag(val) {
+      this.currentTag = val;
+      this.getArticles();
     },
 
-    getArticles() {
-      GetArticles({
-        limit: this.limit,
-        offset: this.currentOffset,
-        category: this.category
-      }).then(res => {
-        this.articles = res.data;
-      });
+    readArticle(id) {
+      window.open(`/#/article/${id}`);
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .home {
   .article-info {
     margin-bottom: 5px;
@@ -173,9 +173,14 @@ export default {
       width: 100%;
     }
   }
-  .el-tag {
-    margin-right: 10px;
-    margin-bottom: 5px;
+  .right {
+    .title {
+      margin-bottom: 10px;
+    }
+    .el-tag {
+      cursor: pointer;
+      margin: 0 10px 5px 0;
+    }
   }
 }
 </style>

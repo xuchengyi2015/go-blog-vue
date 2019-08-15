@@ -1,0 +1,13 @@
+
+//console.log(getRandomInt(3));
+// expected output: 0, 1 or 2
+
+//console.log(getRandomInt(1));
+// expected output: 0
+
+//console.log(Math.random());
+// expected output: a number between 0 and 1
+
+export function GetRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
