@@ -2,7 +2,8 @@
   <div>
     <el-row :gutter="24">
       <el-col :offset="offset" :xs="24" :sm="24" :md="24" :lg="24" :xl="12">
-        <markdown-it-vue class="md-body" :content="content" />
+        <markdown-it-vue v-show="!showLoading" class="md-body" :content="content" />
+        <vue-loading v-show="showLoading" type="barsCylon" color="#3790cf"></vue-loading>
       </el-col>
     </el-row>
   </div>
@@ -19,7 +20,7 @@ export default {
 
   data() {
     return {
-      loading: false,
+      showLoading: true,
       content: ``,
       articleId: this.$route.params.id
     };
@@ -39,6 +40,7 @@ export default {
     getArticle() {
       this.$http(`/api/v1/blog/${this.articleId}`).then(res => {
         if (res.data.status == 0) {
+          this.showLoading = false;
           this.content = res.data.data.content;
         } else {
           this.$message({
@@ -71,3 +73,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.vue-loading {
+  margin-top: 130px;
+}
+</style>
