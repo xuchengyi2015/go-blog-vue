@@ -132,6 +132,7 @@ export default {
 
     getArticlesByTag(val) {
       this.currentTag = val;
+      this.currentOffset = 0;
       this.getArticles();
     },
 
