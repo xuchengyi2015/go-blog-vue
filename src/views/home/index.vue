@@ -27,36 +27,17 @@
       </el-col>
       <el-col :span="4" style="position:fixed;right:20%">
         <div class="article-info right">
-          <el-card>
-            <div class="title">About me</div>
-            <div>Golang 杂耍大师</div>
-            <div>
-              <i class="el-icon-home"></i>
-              <a
-                href="https://github.com/xuchengyi2015"
-                target="blank"
-              >https://github.com/xuchengyi2015</a>
-            </div>
-            <div>
-              <i class="el-icon-home"></i>
-              <a href="https://go.xuxuzhaozhao.top" target="blank">https://go.xuxuzhaozhao.top</a>
-            </div>
-            <div>全是废话废话废话废话废话</div>
-            <div>全是废话废话废话废话废话</div>
-            <div>全是废话废话废话废话废话</div>
+          <el-card style="position:relative">
+            <div class="title" style="font-size:20px;font-weight:600">徐程意</div>
+            <img id="headerImage" src="https://s2.ax1x.com/2019/08/20/mJ6G1P.jpg" />
+            <about-me />
           </el-card>
         </div>
 
         <div class="article-info right">
           <el-card>
             <div class="title">分类 · 归档</div>
-            <ul>
-              <li>Golang (21)</li>
-              <li>Vue (21)</li>
-              <li>MariaDB (21)</li>
-              <li>数据库 (21)</li>
-              <li>其他 (21)</li>
-            </ul>
+            <archives @clickArchive="getArticlesByCategory" />
           </el-card>
         </div>
 
@@ -73,10 +54,14 @@
 
 <script>
 import Tags from "./tags";
+import Archives from "./archives";
+import AboutMe from "./aboutme";
 import { GetArticles } from "@/api/blog";
 export default {
   components: {
-    Tags
+    Tags,
+    Archives,
+    AboutMe
   },
 
   data() {
@@ -85,7 +70,7 @@ export default {
       articles: [],
       currentOffset: 0,
       limit: 10,
-      category: "all",
+      category: "",
       currentTag: "",
       showLoading: true,
       showArticle: false
@@ -97,6 +82,7 @@ export default {
   },
 
   methods: {
+    // 初始化列表页面
     getArticles() {
       this.showLoading = true;
       this.showArticle = false;
@@ -104,7 +90,7 @@ export default {
         limit: this.limit,
         offset: this.currentOffset,
         category: this.category,
-        currentTag: this.currentTag
+        tag: this.currentTag
       }).then(res => {
         this.showLoading = false;
         this.showArticle = true;
@@ -119,7 +105,7 @@ export default {
         limit: this.limit,
         offset: this.currentOffset,
         category: this.category,
-        currentTag: this.currentTag
+        tag: this.currentTag
       }).then(res => {
         this.showLoading = false;
         if (res.data == null || res.data.length == 0) {
@@ -132,6 +118,14 @@ export default {
 
     getArticlesByTag(val) {
       this.currentTag = val;
+      this.category = "";
+      this.currentOffset = 0;
+      this.getArticles();
+    },
+
+    getArticlesByCategory(val) {
+      this.currentTag = "";
+      this.category = val;
       this.currentOffset = 0;
       this.getArticles();
     },
@@ -202,6 +196,13 @@ export default {
     .el-tag:hover {
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
       transition: 0.3s ease;
+    }
+    #headerImage {
+      position: absolute;
+      width: 80px;
+      top: 10px;
+      right: 10px;
+      border-radius: 50%;
     }
   }
   .readAll:hover {
