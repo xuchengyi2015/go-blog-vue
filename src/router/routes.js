@@ -6,7 +6,7 @@ const router = new VueRouter({
     routes: [
         { path: '/', component: () => import("@/views/home") },
         { path: '/article/:id', component: () => import("@/views/article") },
-        { path: '/onlinetools', component: () => import("@/views/onlineTools") }
+        { path: '/aboutme', component: () => import("@/views/aboutMe") }
     ]
 })
 

@@ -3,7 +3,7 @@
     <div class="menu">
       <el-row :gutter="10" style="background: white;">
         <el-col :span="3" :offset="6">
-          <div class="title">徐徐赵赵's 博客</div>
+          <div class="title">徐徐赵赵's</div>
         </el-col>
         <el-col :span="15">
           <template v-if="isPc">
@@ -14,8 +14,8 @@
               @select="handleSelect"
               router
             >
-              <el-menu-item index="/">首页</el-menu-item>
-              <el-menu-item index="/onlinetools">在线工具</el-menu-item>
+              <el-menu-item index="/">博客首页</el-menu-item>
+              <el-menu-item index="/aboutme">关于我</el-menu-item>
             </el-menu>
           </template>
           <template v-else>
