@@ -1,9 +1,12 @@
 <template>
   <div class="about-me">
     <el-card>
-      <h3>徐程意</h3>
+      <h1 style="margin-left:40%;">徐程意</h1>
+      <img src="https://s2.ax1x.com/2019/08/20/mJ6G1P.jpg" />
       <div class="header">
-        <div class="title">基本信息</div>
+        <div class="title">
+          <h3>基本信息</h3>
+        </div>
         <div class="description">
           <table>
             <tr>
@@ -32,14 +35,18 @@
             </tr>
           </table>
         </div>
-        <div class="carer">择业目标：Golang 开发工程师</div>
+        <div class="title">
+          <h3>择业目标</h3>
+        </div>Golang 服务端 开发工程师
       </div>
       <div class="main">
         <div class="professional">
-          <div class="title">专业技能</div>
+          <div class="title">
+            <h3>专业技能</h3>
+          </div>
           <div class="content">
             <ul>
-              <li>两年 golang 开发经验，了解gin与beego，基于RESTful规则主要使用gin/gorm开发后台（2017.06 ~ 至今）</li>
+              <li>两年 golang 开发经验，了解gin与beego，主要使用gin/gorm开发后台（2017.06 ~ 至今）</li>
               <li>熟悉 golang 协程，并基于此开发了一个控制端的聊天室（https://github.com/xuchengyi2015/go-chatroom）</li>
               <li>三年 vue 开发经验，主要使用element/vue-material开发前端（2016.01 ~ 至今）</li>
               <li>五年 .net 后端开发经验（2014-3 ~ 至今）</li>
@@ -50,19 +57,21 @@
           </div>
         </div>
         <div class="experience">
-          <div class="title">工作经历</div>
+          <div class="title">
+            <h3>工作经历</h3>
+          </div>
           <div class="project">
             <div class="company">
               成都名门汇信息技术有限公司
               <span>2016-11~2019-08</span>
             </div>
             <div class="description">
-              <div>主要产品：【木门工厂定制ERP】、【TopSolid3维软件扩展开发】、【柜大师定制软件】</div>
-              <div>主要职责：【带领6人团队开发关键业务项目 / 负责新项目技术选型及优化重构现有项目】</div>
-              <div>部分项目经验：</div>
+              <div class="grey">主要产品：【木门工厂定制ERP】、【TopSolid3维软件扩展开发】、【柜大师定制软件】</div>
+              <div class="grey">主要职责：【带领6人团队开发关键业务项目 / 负责新项目技术选型及优化重构现有项目】</div>
+              <div class="grey">部分项目经验：</div>
               <div>
                 <div>
-                  梦天木门中间服务器(主要技术框架：golang + rabbitmq + cron)
+                  <i class="el-icon-collection-tag"></i>梦天木门中间服务器(主要技术框架：golang + rabbitmq + cron)
                   <ul>
                     <li>在ERP中上传某类特殊文件（.top文件）时，自动处理上传文件服务器的负载均衡；</li>
                     <li>使用golang原生包【.net/http】创建分布式（1master 5slave）上传文件系统；</li>
@@ -73,7 +82,7 @@
                   </ul>
                 </div>
                 <div>
-                  江山欧派木门库存管理系统(主要技术框架：golang + mysql + redis + vue)
+                  <i class="el-icon-collection-tag"></i>江山欧派木门库存管理系统(主要技术框架：golang + mysql + redis + vue)
                   <ul>
                     <li>前期一人负责后端的架构设计与代码编写，采用golang作为后端语言</li>
                     <li>负责提供与第三方公司对接库存系统的api接口（基于RESTful）</li>
@@ -83,7 +92,7 @@
                   </ul>
                 </div>
                 <div>
-                  3D、冠牛、三峰等多家木门工厂定制ERP(主要技术框架：.net + sqlserver + redis + vue)
+                  <i class="el-icon-collection-tag"></i>3D、冠牛、三峰等多家木门工厂定制ERP(主要技术框架：.net + sqlserver + redis + vue)
                   <ul>
                     <li>负责整个项目的基础架构，使用vue框架处理前端webapi处理后端;</li>
                     <li>搭建基础架构包括基于角色与具体用户的【url权限】，【菜单权限】，【字段权限】的权限管理;</li>
@@ -101,12 +110,12 @@
               <span>2015-07~2016-11</span>
             </div>
             <div class="description">
-              <div>主要产品：【众付金服APP】、【信用刷卡分润管理系统】，主要提供【信用卡套现】服务</div>
-              <div>主要职责：【负责完成后端功能开发】</div>
-              <div>部分项目经验：</div>
+              <div class="grey">主要产品：【众付金服APP】、【信用刷卡分润管理系统】，主要提供【信用卡套现】服务</div>
+              <div class="grey">主要职责：【负责完成后端功能开发】</div>
+              <div class="grey">部分项目经验：</div>
               <div>
                 <div>
-                  众付金服APP(主要技术框架：.net + sqlserver + 微信小程序、公众号)
+                  <i class="el-icon-collection-tag"></i>众付金服APP(主要技术框架：.net + sqlserver + 微信小程序、公众号)
                   <ul>
                     <li>编写接通市场上某几个知名的支付品牌的接口;</li>
                     <li>设计并创建MySql及SqlServer其中跟支付相关的数据表并部署到阿里金融云;</li>
@@ -119,38 +128,84 @@
           </div>
         </div>
         <div class="opensource">
-          <div class="title">开源项目及作品</div>
-          <div class="project">
-            <div>go-blog 开源博客</div>
-            <div>https://github.com/xuchengyi2015/go-blog</div>
-            <div>https://github.com/xuchengyi2015/go-blog-vue</div>
-            <div>基本上就是后端（golang、mysql） + 前端（vue、nodejs）形成的一套可快速开发项目的框架了。</div>
+          <div class="title">
+            <h3>开源项目及作品</h3>
           </div>
+
           <div class="project">
-            <div>一次挽救中了勒索病毒的服务器</div>
-            <div>如何挽救中了勒索病毒的Windows服务器中的数据库数据</div>
-            <div>https://goblog.xuxuzhaozhao.top/#/article/1</div>
-            <div>一次挽救中了勒索病毒的服务器，帮助公司挽回至少150万的损失。</div>
+            <div class="company">go-blog 开源博客</div>
+            <div class="grey">基本上就是后端（golang、mysql） + 前端（vue、nodejs）形成的一套可快速开发项目的框架了。</div>
+            <div>
+              <font-awesome-icon :icon="['fab', 'github']" />&nbsp;go-blog：
+              <a
+                href="https://github.com/xuchengyi2015/go-blog"
+              >https://github.com/xuchengyi2015/go-blog</a>
+            </div>
+            <div>
+              <font-awesome-icon :icon="['fab', 'github']" />&nbsp;go-blog-vue：
+              <a
+                href="https://github.com/xuchengyi2015/go-blog-vue"
+              >https://github.com/xuchengyi2015/go-blog-vue</a>
+            </div>
+          </div>
+          <div class="lastproject">
+            <div class="company">一次挽救中了勒索病毒的服务器</div>
+            <div class="grey">一次挽救中了勒索病毒的服务器，帮助公司挽回至少150万的损失。</div>
+            <div>
+              <font-awesome-icon icon="link" />&nbsp;
+              <a
+                href="https://goblog.xuxuzhaozhao.top/#/article/1"
+              >https://goblog.xuxuzhaozhao.top/#/article/1</a>
+            </div>
           </div>
         </div>
       </div>
     </el-card>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {};
-  }
-};
-</script>
-
 <style lang='scss' scoped>
 .about-me {
+  position: relative;
+  img {
+    position: absolute;
+    top: 82px;
+    right: 31%;
+    border-radius: 50%;
+    width: 120px;
+  }
+  h3 {
+    margin: auto;
+    border-left: 3px solid #3790cf;
+    padding-left: 10px;
+  }
   .el-card {
     margin: auto;
-    width: 50%;
+    width: 47%;
+  }
+  .title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .grey {
+    font-size: 14px;
+    color: #7c8084;
+    margin-left: 15px;
+    margin-bottom: 5px;
+  }
+  .company {
+    margin-bottom: 5px;
+  }
+  ul {
+    margin-top: 5px;
+  }
+  table {
+    width: 100%;
+  }
+  .company {
+    font-weight: 600;
+  }
+  .lastproject {
+    margin-top: 10px;
   }
 }
 </style>
