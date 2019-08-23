@@ -1,4 +1,5 @@
 <script>
+import { GetCategories } from "@/api/blog";
 export default {
   render() {
     return (
@@ -21,8 +22,8 @@ export default {
   },
 
   created() {
-    this.$http(`/api/v1/categories`).then(res => {
-      this.categories = res.data.data;
+    GetCategories().then(res => {
+      this.categories = res.data;
     });
   },
 

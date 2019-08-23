@@ -1,21 +1,25 @@
-import axios from 'axios'
+import { CommonApi, RequestType } from '@/api/commonApi'
 
 export function GetArticles(params) {
-    return new Promise((resolve, reject) => {
-        axios.post(`/api/v1/blogs`, params).then(res => {
-            resolve(res.data)
-        }).catch(err => {
-            reject(err)
-        })
-    })
+    const api = `/api/v1/blogs`;
+    var commonApi = new CommonApi(api, RequestType.POST, params)
+    return commonApi.Request();
 }
 
 export function GetTags() {
-    return new Promise((resolve, reject) => {
-        axios.get(`/api/v1/tags`).then(res => {
-            resolve(res.data)
-        }).catch(err => {
-            reject(err)
-        })
-    })
+    const api = `/api/v1/tags`;
+    var commonApi = new CommonApi(api)
+    return commonApi.Request();
+}
+
+export function GetCategories() {
+    const api = `/api/v1/categories`;
+    var commonApi = new CommonApi(api)
+    return commonApi.Request();
+}
+
+export function GetArticle(id) {
+    const api = `/api/v1/blog/${id}`;
+    var commonApi = new CommonApi(api)
+    return commonApi.Request();
 }

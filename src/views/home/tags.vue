@@ -1,5 +1,6 @@
 <script>
 import { GetRandomInt } from "@/plugins/tools";
+import { GetTags } from "@/api/blog";
 export default {
   render() {
     return (
@@ -26,8 +27,8 @@ export default {
   },
 
   created() {
-    this.$http(`/api/v1/tags`).then(res => {
-      this.tags = res.data.data;
+    GetTags().then(res => {
+      this.tags = res.data;
     });
   },
 

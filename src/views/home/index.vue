@@ -131,7 +131,7 @@ export default {
     },
 
     readArticle(id) {
-      window.open(`/#/article/${id}`);
+      window.open(`/article/${id}`);
     }
   }
 };

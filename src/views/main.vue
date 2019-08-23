@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="menu">
-      <el-row :gutter="10" style="background: white;">
+      <el-row :gutter="10" style="background: white; border-bottom:1px solid #c1c0c0">
         <el-col :span="3" :offset="6">
           <div class="title">徐徐赵赵's</div>
         </el-col>

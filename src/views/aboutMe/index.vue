@@ -19,7 +19,7 @@
             </tr>
             <tr>
               <td>E-mail</td>
-              <td>xuchengyi2015@mail.com</td>
+              <td>xuchengyi2015@gmail.com</td>
             </tr>
             <tr>
               <td>毕业院校</td>
@@ -50,7 +50,7 @@
               <li>熟悉 golang 协程，并基于此开发了一个控制端的聊天室（https://github.com/xuchengyi2015/go-chatroom）</li>
               <li>三年 vue 开发经验，主要使用element/vue-material开发前端（2016.01 ~ 至今）</li>
               <li>五年 .net 后端开发经验（2014-3 ~ 至今）</li>
-              <li>简单了解 java，用其做过自动生成gorm的model模型</li>
+              <li>了解 java，用其做过自动生成gorm的model模型</li>
               <li>熟悉 sqlserver、mysql 与 redis、rabbitmq</li>
               <li>熟悉 linux 开发环境，两年vim编辑器使用经验，熟悉常用的vim命令</li>
             </ul>
