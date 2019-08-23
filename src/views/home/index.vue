@@ -10,7 +10,7 @@
         >
           <el-card shadow="always">
             <img :src="item.theme_image==''?defalutImage:item.theme_image" />
-            <div class="article-title">{{item.title}}</div>
+            <div class="article-title" @click="readArticle(item.id)">{{item.title}}</div>
             <div class="article-short">{{item.brief}}</div>
             <div class="article-foot">
               {{item.created_at}}
@@ -25,11 +25,14 @@
           <el-button @click="loadMore">加载更多...</el-button>
         </div>
       </el-col>
-      <el-col :span="4" style="position:fixed;right:20%">
+      <el-col :span="4" style="position:fixed;left: 63%;">
         <div class="article-info right">
           <el-card style="position:relative">
             <div class="title" style="font-size:20px;font-weight:600">徐程意</div>
-            <img id="headerImage" src="https://s2.ax1x.com/2019/08/20/mJ6G1P.jpg" />
+            <img
+              id="headerImage"
+              src="http://www.gx8899.com/uploads/allimg/160914/3-160914161309-52.gif"
+            />
             <about-me />
           </el-card>
         </div>
@@ -109,7 +112,7 @@ export default {
       }).then(res => {
         this.showLoading = false;
         if (res.data == null || res.data.length == 0) {
-          this.$message({ type: "warning", message: "没有更多的文章咯！" });
+          this.$message({ offset: 150, message: "没有更多的文章咯！" });
         } else {
           this.articles.push(...res.data);
         }
@@ -144,6 +147,12 @@ export default {
   }
   .article-title {
     font-size: 17px;
+    font-weight: 600;
+  }
+  .article-title:hover {
+    cursor: pointer;
+    font-size: 18px;
+    color: #3790cf;
   }
   .article-short {
     margin-top: 5px;

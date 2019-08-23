@@ -1,23 +1,19 @@
 <template>
   <div id="app">
-    <vue-main />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: "app",
-
-  components: {
-    "vue-main": () => import(`./views/main`)
-  }
+  name: "app"
 };
 </script>
 
 <style>
 body {
   margin: 0px;
-  background-color: #f9f9f5;
+  background-color: #f6f6f6;
 }
 
 ::-webkit-scrollbar {

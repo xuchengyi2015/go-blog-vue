@@ -2,7 +2,7 @@
   <div class="about-me">
     <el-card>
       <h1 style="margin-left:40%;">徐程意</h1>
-      <img src="https://s2.ax1x.com/2019/08/20/mJ6G1P.jpg" />
+      <img src="http://www.gx8899.com/uploads/allimg/160914/3-160914161309-52.gif" />
       <div class="header">
         <div class="title">
           <h3>基本信息</h3>
@@ -27,7 +27,7 @@
             </tr>
             <tr>
               <td>学历</td>
-              <td>本科 2011-09~2015-07</td>
+              <td>本科 2011-09 ~ 2015-07</td>
             </tr>
             <tr>
               <td>现居地</td>
@@ -63,7 +63,7 @@
           <div class="project">
             <div class="company">
               成都名门汇信息技术有限公司
-              <span>2016-11~2019-08</span>
+              <span>2016-11 ~ 至今</span>
             </div>
             <div class="description">
               <div class="grey">主要产品：【木门工厂定制ERP】、【TopSolid3维软件扩展开发】、【柜大师定制软件】</div>
@@ -107,7 +107,7 @@
           <div class="project">
             <div class="company">
               四川众付金服信息科技有限公司
-              <span>2015-07~2016-11</span>
+              <span>2015-07 ~ 2016-11</span>
             </div>
             <div class="description">
               <div class="grey">主要产品：【众付金服APP】、【信用刷卡分润管理系统】，主要提供【信用卡套现】服务</div>
@@ -154,8 +154,8 @@
             <div>
               <font-awesome-icon icon="link" />&nbsp;
               <a
-                href="https://goblog.xuxuzhaozhao.top/#/article/1"
-              >https://goblog.xuxuzhaozhao.top/#/article/1</a>
+                href="https://goblog.xuxuzhaozhao.top/article/1"
+              >https://goblog.xuxuzhaozhao.top/article/1</a>
             </div>
           </div>
         </div>
@@ -166,6 +166,7 @@
 <style lang='scss' scoped>
 .about-me {
   position: relative;
+  margin-bottom: 10px;
   img {
     position: absolute;
     top: 82px;
