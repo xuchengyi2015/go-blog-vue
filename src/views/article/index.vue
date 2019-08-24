@@ -68,6 +68,11 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
 
+  .el-row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
   .title {
     position: fixed;
     left: 63%;
